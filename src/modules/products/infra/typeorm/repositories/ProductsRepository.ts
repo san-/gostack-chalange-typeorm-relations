@@ -53,8 +53,9 @@ class ProductsRepository implements IProductsRepository {
     const updatedProducts = foundProducts.map(product => {
       const index = products.findIndex(pro => pro.id === product.id);
       const { quantity } = products[index];
-      return { ...product, quantity };
+      return { ...product, quantity: product.quantity - quantity };
     });
+    await this.ormRepository.save(updatedProducts);
     return updatedProducts;
   }
 }

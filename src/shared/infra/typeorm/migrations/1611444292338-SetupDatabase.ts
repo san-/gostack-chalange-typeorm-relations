@@ -58,12 +58,14 @@ export default class SetupDatabase1611444292338 implements MigrationInterface {
           {
             name: 'price',
             type: 'decimal',
+            precision: 8,
+            scale: 2,
             isNullable: false,
             default: 0.0,
           },
           {
             name: 'quantity',
-            type: 'decimal',
+            type: 'int',
             isNullable: false,
           },
           {
@@ -121,8 +123,8 @@ export default class SetupDatabase1611444292338 implements MigrationInterface {
           },
           { name: 'product_id', type: 'uuid' },
           { name: 'order_id', type: 'uuid' },
-          { name: 'price', type: 'decimal' },
-          { name: 'quantity', type: 'decimal' },
+          { name: 'price', type: 'decimal', precision: 8, scale: 2 },
+          { name: 'quantity', type: 'int' },
           { name: 'created_at', type: 'timestamp', default: 'now()' },
           { name: 'updated_at', type: 'timestamp', default: 'now()' },
         ],
